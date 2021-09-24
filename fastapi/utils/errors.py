@@ -5,7 +5,7 @@ class ApiError(Exception):
   detail: str = 'API error'
   openapi_response: dict[str, Union[int, str]]
 
-class error_400(ApiError):
+class Error_400(ApiError):
   status_code = 400
   detail = "Bad Request"
   openapi_response = {
@@ -19,7 +19,7 @@ class error_400(ApiError):
     }
   }
 
-class error_401(ApiError):
+class Error_401(ApiError):
   status_code = 401
   detail = "Unauthorized"
   openapi_response = {
@@ -33,7 +33,7 @@ class error_401(ApiError):
     }
   }
 
-class error_404(ApiError):
+class Error_404(ApiError):
   status_code = 404
   detail = "Not Found"
   openapi_response = {

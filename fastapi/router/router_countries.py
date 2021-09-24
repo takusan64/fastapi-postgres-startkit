@@ -1,7 +1,7 @@
 import config
-from database.database_countries import DataBase_Countries
+from database.database import DataBase
 
-db_countries = DataBase_Countries(
+db = DataBase(
   host = config.DB_HOST,
   port = config.DB_PORT,
   user = config.DB_USER,
@@ -11,7 +11,7 @@ db_countries = DataBase_Countries(
 
 def get_country(country_id):
   try:
-    country_data = sum(db_countries.get_country(country_id), [])
+    country_data = sum(db.get_country(country_id), [])
     if country_data:
       res={
         "country_id":country_data[0],
@@ -20,7 +20,7 @@ def get_country(country_id):
       }
       return res
     else:
-      print("Can't get data.")
+      print("No matching data found.")
       raise Exception
   except Exception:
     raise

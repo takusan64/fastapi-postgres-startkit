@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class res_model(BaseModel):
+class Response_Model(BaseModel):
   country_id: int
   country_code: str
   name_label: str

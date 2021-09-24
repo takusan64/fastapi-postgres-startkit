@@ -34,7 +34,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/res_model"
+                  "$ref": "#/components/schemas/Response_Model"
                 }
               }
             }
@@ -76,6 +76,29 @@
           }
         }
       },
+      "Response_Model": {
+        "title": "Response_Model",
+        "required": [
+          "country_id",
+          "country_code",
+          "name_label"
+        ],
+        "type": "object",
+        "properties": {
+          "country_id": {
+            "title": "Country Id",
+            "type": "integer"
+          },
+          "country_code": {
+            "title": "Country Code",
+            "type": "string"
+          },
+          "name_label": {
+            "title": "Name Label",
+            "type": "string"
+          }
+        }
+      },
       "ValidationError": {
         "title": "ValidationError",
         "required": [
@@ -98,29 +121,6 @@
           },
           "type": {
             "title": "Error Type",
-            "type": "string"
-          }
-        }
-      },
-      "res_model": {
-        "title": "res_model",
-        "required": [
-          "country_id",
-          "country_code",
-          "name_label"
-        ],
-        "type": "object",
-        "properties": {
-          "country_id": {
-            "title": "Country Id",
-            "type": "integer"
-          },
-          "country_code": {
-            "title": "Country Code",
-            "type": "string"
-          },
-          "name_label": {
-            "title": "Name Label",
             "type": "string"
           }
         }

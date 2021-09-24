@@ -4,9 +4,9 @@ from middleware import middleware
 from openapi import openapi_util
 from openapi import metadata
 import config
-from database.database_util import DataBase_Util
+from database.database import DataBase
 
-db_util = DataBase_Util(
+db = DataBase(
   host = config.DB_HOST,
   port = config.DB_PORT,
   user = config.DB_USER,
@@ -27,7 +27,7 @@ app = FastAPI(
 async def startup_event():
   try:
     openapi_util.create_openapi_jsonfile(app)
-    db_util.connect_check()
+    db.connect_check()
   except Exception:
     print("Application startup is not completed.")
     raise
